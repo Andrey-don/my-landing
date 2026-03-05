@@ -441,20 +441,31 @@
     .about-photo {
       display: flex; align-items: center; justify-content: center;
     }
-    .about-avatar {
+    .about-avatar-wrap {
       width: 450px;
       height: 450px;
       border-radius: 50%;
-      object-fit: cover;
-      object-position: center 35%;
-      display: block;
-      margin: 0 auto;
+      overflow: hidden;
+      background: var(--bg-2);
       box-shadow: 0 0 40px rgba(0,212,255,0.35);
+      border: 1px solid rgba(0,212,255,0.15);
       transition: all 0.3s ease;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .about-avatar:hover {
+    .about-avatar-wrap:hover {
       transform: scale(1.05);
       box-shadow: 0 0 60px rgba(0,212,255,0.6);
+    }
+    .about-avatar {
+      width: 70%;
+      height: 70%;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 50%;
+      display: block;
     }
     .about-text h2 { margin-bottom: 1.25rem; }
     .about-text p { margin-bottom: 1.4rem; font-size: 1.02rem; }
@@ -844,7 +855,9 @@
       <div class="container">
         <div class="about-grid">
           <div class="about-photo reveal">
-            <img src="images/avatar.jpg" class="about-avatar" alt="Андрей — AI developer">
+            <div class="about-avatar-wrap">
+              <img src="images/avatar.jpg" class="about-avatar" alt="Андрей — AI developer">
+            </div>
           </div>
           <div class="about-text">
             <div class="section-eyebrow reveal">О себе</div>
