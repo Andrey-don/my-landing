@@ -439,19 +439,21 @@
     #about { padding: var(--section-py) 0; }
     .about-grid { display: grid; grid-template-columns: 340px 1fr; gap: 5rem; align-items: center; }
     .about-photo {
-      aspect-ratio: 4/5; background: var(--glass); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); display: flex; align-items: center;
-      justify-content: center; overflow: hidden; position: relative;
+      display: flex; align-items: center; justify-content: center;
     }
-    .about-photo::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 45%;
-      background: linear-gradient(to top, rgba(0,212,255,0.04), transparent);
+    .about-avatar {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 0 40px rgba(0,212,255,0.35);
+      transition: all 0.3s ease;
     }
-    .photo-ph { display: flex; flex-direction: column; align-items: center; gap: 12px; color: var(--text-3); font-size: 0.82rem; }
-    .photo-ph-icon {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: var(--glass-hover); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+    .about-avatar:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 60px rgba(0,212,255,0.6);
     }
     .about-text h2 { margin-bottom: 1.25rem; }
     .about-text p { margin-bottom: 1.4rem; font-size: 1.02rem; }
@@ -841,14 +843,11 @@
       <div class="container">
         <div class="about-grid">
           <div class="about-photo reveal">
-            <div class="photo-ph">
-              <div class="photo-ph-icon">👤</div>
-              <span>Фото</span>
-            </div>
+            <img src="images/avatar.jpg" class="about-avatar" alt="Андрей — AI developer">
           </div>
           <div class="about-text">
             <div class="section-eyebrow reveal">О себе</div>
-            <h2 class="reveal d1">Привет, я <span class="gradient-text">[Имя]</span></h2>
+            <h2 class="reveal d1">Привет, я <span class="gradient-text">Андрей</span></h2>
             <p class="reveal d2">
               Разрабатываю цифровые продукты с фокусом на результат.
               Работаю на стыке веб-разработки и AI — делаю сайты, приложения
