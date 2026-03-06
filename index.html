@@ -230,7 +230,7 @@
     }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; transition: opacity 0.25s ease; }
     .nav-logo:hover { opacity: 0.85; }
-    .nav-logo img { height: 28px; width: auto; display: block; transition: filter 0.25s ease; }
+    .nav-logo img { width: 36px; height: auto; display: block; transition: filter 0.25s ease; }
     .nav-logo:hover img { filter: drop-shadow(0 0 6px rgba(0,212,255,0.6)); }
     .nav-logo-text { color: #ffffff; font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; }
     .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
@@ -319,7 +319,7 @@
       animation: orbPulse 4s ease-in-out infinite;
     }
     .hero-img {
-      position: relative; z-index: 1; width: 420px; max-width: 100%;
+      position: relative; z-index: 1; width: 520px; max-width: 100%;
       border-radius: var(--radius-lg); border: 1px solid rgba(0,212,255,0.18);
       box-shadow:
         0 0 40px rgba(0,212,255,0.18),
@@ -391,6 +391,18 @@
     }
     .step h3 { font-size: 0.95rem; margin-bottom: 0.45rem; }
     .step p { font-size: 0.84rem; line-height: 1.55; }
+
+    /* Section illustrations */
+    .section-img {
+      display: block; width: 100%; max-width: 780px; margin: 2.5rem auto 0;
+      border-radius: var(--radius); border: 1px solid var(--border);
+      opacity: 0.88; object-fit: cover;
+    }
+    .service-card-img {
+      width: 100%; border-radius: var(--radius-sm); margin-bottom: 1rem;
+      border: 1px solid var(--border); opacity: 0.9; object-fit: cover;
+      max-height: 160px;
+    }
 
     /* ================================ SERVICES ================================ */
     #services { padding: var(--section-py) 0; }
@@ -539,7 +551,7 @@
     .footer-links a:hover { color: var(--text-2); }
 
     /* ================================ FLOATING TG ================================ */
-    .float-tg { position: fixed; bottom: 28px; right: 28px; z-index: 99; width: 52px; height: 52px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 28px rgba(0,212,255,0.4); transition: all var(--ease); opacity: 0; transform: translateY(14px) scale(0.9); pointer-events: none; text-decoration: none; }
+    .float-tg { position: fixed; bottom: 32px; right: 28px; z-index: 99; width: 52px; height: 52px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 28px rgba(0,212,255,0.4); transition: all var(--ease); opacity: 0; transform: translateY(14px) scale(0.9); pointer-events: none; text-decoration: none; }
     .float-tg.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
     .float-tg:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 8px 36px rgba(0,212,255,0.5); }
     .float-tg svg { width: 24px; height: 24px; fill: #050508; }
@@ -671,7 +683,7 @@
           </div>
           <div class="hero-image-wrap reveal d2">
             <div class="hero-image-glow"></div>
-            <img src="images/hero_idle.webp" alt="AI Consultant" class="hero-img">
+            <img src="images/hero_idle.webp" alt="AI developer working with futuristic interface" class="hero-img">
             <div class="hero-img-badge">
               <span class="hero-img-badge-dot"></span>
               Доступен для проектов
@@ -735,6 +747,7 @@
           <div class="section-eyebrow reveal">Процесс</div>
           <h2 class="reveal d1">Как мы работаем</h2>
           <p class="reveal d2">От первого сообщения до запуска — понятно и без сюрпризов</p>
+          <img src="images/ai-process.webp" alt="AI workflow pipeline visualization" class="section-img reveal d3" loading="lazy">
         </div>
         <div class="process-grid">
           <div class="step reveal">
@@ -770,6 +783,7 @@
           <div class="section-eyebrow reveal">Услуги</div>
           <h2 class="reveal d1">Что я делаю</h2>
           <p class="reveal d2">Три направления — один исполнитель, который отвечает за результат</p>
+          <img src="images/ai-development.webp" alt="AI developer controlling multiple digital systems" class="section-img reveal d3" loading="lazy">
         </div>
         <div class="services-grid">
           <div class="card service-card reveal">
@@ -806,6 +820,7 @@
             </div>
           </div>
           <div class="card service-card reveal d3">
+            <img src="images/ai-automation.webp" alt="AI automation controlling digital workflows" class="service-card-img" loading="lazy">
             <div class="service-icon">🔗</div>
             <h3>Интеграции и автоматизации</h3>
             <p>Связываю системы, автоматизирую процессы. Экономлю время вашей команды.</p>
@@ -827,6 +842,7 @@
       <div class="container">
         <div class="results-wrap reveal">
           <div class="results-glow"></div>
+          <img src="images/ai-results-dashboard.webp" alt="AI analytics dashboard with performance metrics" class="section-img" loading="lazy">
           <div class="results-header">
             <div class="section-eyebrow" style="justify-content:center;">Результаты</div>
             <h2>Что получают клиенты</h2>
@@ -861,7 +877,7 @@
       <div class="container">
         <div class="about-grid">
           <div class="about-photo reveal">
-            <img src="images/avatar.jpg" class="about-avatar" alt="Андрей — AI developer">
+            <img src="images/agent-orion.webp" class="about-avatar" alt="AI developer portrait with futuristic glasses" loading="lazy">
           </div>
           <div class="about-text">
             <div class="section-eyebrow reveal">О себе</div>
@@ -903,6 +919,7 @@
         <div class="section-header">
           <div class="section-eyebrow reveal">Преимущества</div>
           <h2 class="reveal d1">Почему выбирают меня, а не агентство</h2>
+          <img src="images/ai-expert-control.webp" alt="AI expert controlling complex digital systems" class="section-img reveal d2" loading="lazy">
         </div>
         <div class="why-grid">
           <div class="card why-card reveal">
