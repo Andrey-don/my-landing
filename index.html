@@ -551,6 +551,12 @@
     .float-tg:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 8px 36px rgba(0,212,255,0.5); }
     .float-tg svg { width: 24px; height: 24px; fill: #050508; }
 
+    /* ================================ SCROLL TO TOP ================================ */
+    .scroll-top { position: fixed; bottom: 24px; right: 24px; z-index: 99; width: 48px; height: 48px; background: var(--bg-3); border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all var(--ease); opacity: 0; transform: translateY(14px) scale(0.9); pointer-events: none; }
+    .scroll-top.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
+    .scroll-top:hover { border-color: var(--border-hover); background: var(--accent-dim); box-shadow: 0 0 24px var(--accent-glow); transform: translateY(-3px) scale(1.06); }
+    .scroll-top svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
     /* ================================ SCROLL REVEAL ================================ */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.in { opacity: 1; transform: translateY(0); }
@@ -1045,6 +1051,10 @@
     </div>
   </footer>
 
+  <button class="scroll-top" id="scrollTop" aria-label="Наверх">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
   <a href="https://t.me/username" class="float-tg" id="floatTg" target="_blank" aria-label="Написать в Telegram">
     <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.89 8.22-1.97 9.28c-.15.66-.54.82-1.09.51l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.05 5.56-5.02c.24-.21-.05-.33-.37-.12L8.32 14.62l-2.96-.92c-.64-.2-.66-.64.14-.95l11.57-4.46c.53-.2 1 .13.82.93z"/></svg>
   </a>
@@ -1264,9 +1274,15 @@
        FLOATING TELEGRAM
     ================================ */
     const floatTg = document.getElementById('floatTg');
+    const scrollTopBtn = document.getElementById('scrollTop');
     window.addEventListener('scroll', () => {
-      floatTg.classList.toggle('show', window.scrollY > 320);
+      const y = window.scrollY;
+      floatTg.classList.toggle('show', y > 320);
+      scrollTopBtn.classList.toggle('show', y > 400);
     }, { passive: true });
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
     /* ================================
        SMOOTH SCROLL
