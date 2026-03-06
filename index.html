@@ -230,7 +230,8 @@
     }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; transition: opacity 0.25s ease; }
     .nav-logo:hover { opacity: 0.85; }
-    .nav-logo img { height: 32px; width: auto; display: block; }
+    .nav-logo img { height: 28px; width: auto; display: block; transition: filter 0.25s ease; }
+    .nav-logo:hover img { filter: drop-shadow(0 0 6px rgba(0,212,255,0.6)); }
     .nav-logo-text { color: #ffffff; font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; }
     .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
     .nav-links a { color: var(--text-2); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color var(--ease); }
@@ -303,7 +304,7 @@
     .hero-badge:hover { box-shadow: 0 0 20px rgba(0,212,255,0.15); }
     .badge-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; animation: blink 2s infinite; }
     .hero-title { margin-bottom: 1.4rem; }
-    .hero-sub { font-size: 1.12rem; color: var(--text-2); max-width: 520px; margin-bottom: 2.4rem; line-height: 1.72; }
+    .hero-sub { font-size: 1.12rem; color: rgba(255,255,255,0.75); max-width: 520px; margin-bottom: 2.4rem; line-height: 1.72; }
     .hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.8rem; }
     .hero-meta { display: flex; align-items: center; flex-wrap: wrap; font-size: 0.82rem; color: var(--text-3); }
     .hero-meta span { padding: 0 12px; border-left: 1px solid var(--border); }
