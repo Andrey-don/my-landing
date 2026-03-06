@@ -306,7 +306,8 @@
     .hero-meta span { padding: 0 12px; border-left: 1px solid var(--border); }
     .hero-meta span:first-child { padding-left: 0; border-left: none; }
 
-    .hero-image-wrap { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; transition: transform 0.4s ease; transform-style: preserve-3d; }
+    .hero-inner { perspective: 900px; }
+    .hero-image-wrap { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; transform-style: preserve-3d; will-change: transform; }
     .hero-image-glow {
       position: absolute; inset: -50px;
       background: radial-gradient(ellipse at center, rgba(0,212,255,0.12) 0%, rgba(124,58,237,0.07) 40%, transparent 70%);
@@ -1306,23 +1307,47 @@
     });
 
     /* ================================
-       HERO IMAGE 3D TILT
+       HERO IMAGE 3D TILT (lerp + rAF)
     ================================ */
-    const heroWrap = document.querySelector('.hero-image-wrap');
-    if (heroWrap) {
-      const MAX_TILT = 6;
-      heroWrap.addEventListener('mousemove', e => {
-        const r = heroWrap.getBoundingClientRect();
+    (function () {
+      const wrap = document.querySelector('.hero-image-wrap');
+      if (!wrap) return;
+
+      const MAX_TILT = 4.5;
+      const LERP    = 0.07;
+
+      let tX = 0, tY = 0;   // target
+      let cX = 0, cY = 0;   // current (lerped)
+      let raf = null;
+
+      function lerp(a, b, t) { return a + (b - a) * t; }
+
+      function tick() {
+        cX = lerp(cX, tX, LERP);
+        cY = lerp(cY, tY, LERP);
+        wrap.style.transform = `rotateX(${cX.toFixed(3)}deg) rotateY(${cY.toFixed(3)}deg)`;
+        if (Math.abs(cX - tX) > 0.01 || Math.abs(cY - tY) > 0.01) {
+          raf = requestAnimationFrame(tick);
+        } else {
+          wrap.style.transform = '';
+          raf = null;
+        }
+      }
+
+      wrap.addEventListener('mousemove', e => {
+        const r  = wrap.getBoundingClientRect();
         const dx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
         const dy = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
-        heroWrap.style.transition = 'transform 0.1s ease';
-        heroWrap.style.transform = `perspective(900px) rotateY(${dx * MAX_TILT}deg) rotateX(${-dy * MAX_TILT}deg)`;
+        tX = -dy * MAX_TILT;
+        tY =  dx * MAX_TILT;
+        if (!raf) raf = requestAnimationFrame(tick);
       });
-      heroWrap.addEventListener('mouseleave', () => {
-        heroWrap.style.transition = 'transform 0.4s ease';
-        heroWrap.style.transform = '';
+
+      wrap.addEventListener('mouseleave', () => {
+        tX = 0; tY = 0;
+        if (!raf) raf = requestAnimationFrame(tick);
       });
-    }
+    })();
 
   </script>
 
