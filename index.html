@@ -373,24 +373,19 @@
     /* ================================ PROCESS ================================ */
     #process { padding: var(--section-py) 0; }
     .process-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; position: relative;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
     }
-    .process-grid::before {
-      content: ''; position: absolute; top: 27px; left: 8%; right: 8%; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent);
-    }
-    .step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 8px; position: relative; z-index: 1; }
+    .step { display: flex; flex-direction: column; }
     .step-num {
-      width: 54px; height: 54px; background: var(--bg-3); border: 1px solid var(--border);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px; background: var(--accent-dim);
+      border: 1px solid rgba(0,212,255,0.25); border-radius: var(--radius-sm);
       margin-bottom: 1.2rem; font-size: 0.88rem; font-weight: 700; color: var(--accent);
-      transition: all var(--ease);
+      letter-spacing: 0.04em; transition: all var(--ease);
     }
-    .step:hover .step-num {
-      border-color: var(--accent); background: var(--accent-dim); box-shadow: 0 0 24px var(--accent-glow);
-    }
-    .step h3 { font-size: 0.95rem; margin-bottom: 0.45rem; }
-    .step p { font-size: 0.84rem; line-height: 1.55; }
+    .step:hover .step-num { background: rgba(0,212,255,0.18); box-shadow: 0 0 20px var(--accent-glow); }
+    .step h3 { font-size: 1rem; margin-bottom: 0.55rem; }
+    .step p { font-size: 0.84rem; line-height: 1.6; }
 
     /* Section illustrations */
     .section-img {
@@ -572,7 +567,6 @@
       .hero-image-wrap { display: none; }
       .ai-solutions-grid { grid-template-columns: 1fr 1fr; }
       .process-grid { grid-template-columns: repeat(2, 1fr); }
-      .process-grid::before { display: none; }
       .metrics-grid { grid-template-columns: repeat(2, 1fr); }
       .about-grid { grid-template-columns: 280px 1fr; gap: 3.5rem; }
       .results-wrap { padding: 40px; }
@@ -751,22 +745,22 @@
           <img src="images/ai-process.webp" alt="AI workflow pipeline visualization" class="section-img reveal d3" loading="lazy">
         </div>
         <div class="process-grid">
-          <div class="step reveal">
+          <div class="card step reveal">
             <div class="step-num">01</div>
             <h3>Созвон</h3>
             <p>Обсуждаем задачу: что нужно, в какие сроки, какой бюджет. Без обязательств.</p>
           </div>
-          <div class="step reveal d1">
+          <div class="card step reveal d1">
             <div class="step-num">02</div>
             <h3>Оценка и план</h3>
             <p>Готовлю описание работ и стоимость. Фиксируем объём, сроки и цену.</p>
           </div>
-          <div class="step reveal d2">
+          <div class="card step reveal d2">
             <div class="step-num">03</div>
             <h3>Разработка</h3>
             <p>Работаю итерациями, показываю промежуточные результаты.</p>
           </div>
-          <div class="step reveal d3">
+          <div class="card step reveal d3">
             <div class="step-num">04</div>
             <h3>Запуск</h3>
             <p>Запускаем и проверяем. Остаюсь на связи после сдачи проекта.</p>
@@ -1326,7 +1320,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.ai-solutions-grid, .services-grid, .why-grid, .metrics-grid').forEach(el => {
+    document.querySelectorAll('.ai-solutions-grid, .services-grid, .why-grid, .metrics-grid, .process-grid').forEach(el => {
       cardObserver.observe(el);
     });
 
