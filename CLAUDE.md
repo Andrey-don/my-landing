@@ -17,11 +17,11 @@
 | `index.html` | Полный MVP-прототип на vanilla HTML/CSS/JS — рабочий лендинг |
 | `images/hero_idle.webp` | Hero, правая колонка (520px, rounded, glow, 3D tilt) |
 | `images/agent-orion.webp` | Секция «О себе» (380px круг, object-position: center 10%) |
-| `images/ai-automation.webp` | Секция «Что я внедряю» (section-img, 16:9) |
-| `images/ai-development.webp` | Секция «Что я делаю» (section-img, 16:9) |
-| `images/ai-process.webp` | Секция «Как мы работаем» (section-img, 16:9) |
-| `images/ai-results-dashboard.webp` | Секция «Что получают клиенты» (section-img, 16:9) |
-| `images/ai-expert-control.webp` | Секция «Почему выбирают меня» (section-img, 16:9) |
+| `images/ai-automation.webp` | В папке, не используется в HTML |
+| `images/ai-development.webp` | В папке, не используется в HTML |
+| `images/ai-process.webp` | В папке, не используется в HTML |
+| `images/ai-results-dashboard.webp` | В папке, не используется в HTML |
+| `images/ai-expert-control.webp` | В папке, не используется в HTML |
 | `images/logo.webp` | Navbar (width: 36px) |
 | `images/favicon.png` | `<link rel="icon">` в head |
 
@@ -66,11 +66,6 @@
 - `::before` — линия `32px × 2px`, cyan, `border-radius: 2px`
 - `margin-bottom: 16px`
 
-**Section images (.section-img):**
-- `aspect-ratio: 16 / 9`, `object-fit: cover`, `object-position: top center`
-- `max-width: 780px` (по умолчанию), переопределяется inline до `900px` там где нужно
-- `margin: 2.5rem auto 48px`, `border-radius: var(--radius)`, `opacity: 0.88`
-
 **Canvas-фон:**
 - Анимированная сетка 64×64px
 - 70 плавающих частиц (cyan + purple), скорость 0.28px/frame
@@ -84,12 +79,12 @@
 Порядок секций в `index.html` (зафиксирован):
 
 1. **Hero** — headline «Внедряю AI-агентов в ваш бизнес», subheadline, CTA + `hero_idle.webp` (520px, 3D tilt)
-2. **AI Solutions** — eyebrow + h2 + subtitle + `ai-automation.webp` (900px) + 6 glassmorphism-карточек
-3. **Процесс** — eyebrow + h2 + subtitle + `ai-process.webp` + 4 шага-карточки (glassmorphism, как why-cards)
-4. **Услуги** — eyebrow + h2 + subtitle + `ai-development.webp` + 4 карточки
-5. **Case Results** — eyebrow + h2 + subtitle + `ai-results-dashboard.webp` + 4 метрики
+2. **AI Solutions** — eyebrow + h2 + subtitle + 6 glassmorphism-карточек (без изображения)
+3. **Процесс** — eyebrow + h2 + subtitle + 4 шага-карточки (glassmorphism, без изображения)
+4. **Услуги** — eyebrow + h2 + subtitle + 4 карточки (без изображения)
+5. **Case Results** — eyebrow + h2 + subtitle + 4 метрики (без изображения)
 6. **Обо мне** — `agent-orion.webp` (380px круг) + имя **Agent Orion** + стек технологий
-7. **Почему со мной** — eyebrow + h2 + `ai-expert-control.webp` + 6 карточек
+7. **Почему со мной** — eyebrow + h2 + 6 карточек (без изображения)
 8. **FAQ** — 8 вопросов, рендер через JS
 9. **Контакты** — форма (3 поля) + Telegram + email
 10. **CTA** — «Готовы внедрить AI в ваш бизнес?»
