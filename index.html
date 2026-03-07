@@ -387,6 +387,10 @@
     .step:hover .step-num { background: rgba(0,212,255,0.18); box-shadow: 0 0 20px var(--accent-glow); }
     .step h3 { font-size: 1rem; margin-bottom: 0.55rem; }
     .step p { font-size: 0.84rem; line-height: 1.6; }
+    .process-image {
+      display: block; max-width: 900px; width: 100%; aspect-ratio: 16 / 9;
+      object-fit: cover; border-radius: 16px; margin: 40px auto;
+    }
 
     /* Section illustrations */
     .section-img {
@@ -741,8 +745,8 @@
           <div class="section-eyebrow reveal">Процесс</div>
           <h2 class="reveal d1">Как мы работаем</h2>
           <p class="reveal d2">От первого сообщения до запуска — понятно и без сюрпризов</p>
-          <img src="/images/ai-process.webp" alt="AI workflow pipeline visualization" class="section-img reveal d3" loading="lazy" style="max-width:900px;border-radius:16px;margin-bottom:40px;aspect-ratio:16/9;object-fit:cover;object-position:top center;">
         </div>
+        <img src="/images/ai-process.webp" alt="AI workflow automation process" loading="lazy" class="process-image">
         <div class="process-grid">
           <div class="card step reveal">
             <div class="step-num">01</div>
